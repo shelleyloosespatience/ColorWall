@@ -4,6 +4,10 @@ version = "0.1.0"
 edition = "2021"
 authors = ["laxenta"]
 description = "Transfer Spotify playlists between accounts"
+license = "GPL-3.0"
+repository = "https://github.com/laxenta/spotify-sync-CLI"
+keywords = ["spotify", "music", "cli", "sync", "transfer"]
+categories = ["command-line-utilities"]
 
 [dependencies]
 reqwest = { version = "0.11", features = ["json"] }

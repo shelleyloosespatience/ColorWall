@@ -2,7 +2,7 @@
 
 [![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)
 [![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)](https://developer.spotify.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 A goofy command-line tool for seamlessly transferring your Spotify library between accounts. Transfer your liked songs, playlists, and albums with a single command, im also working on a second version as an APP version for windows, mac or linux. Not android i suppose, we will see? i guess?
 
@@ -169,5 +169,17 @@ cargo clippy
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details. 
+
+This means you are free to:
+- Use this software for any purpose
+- Change the software to suit your needs
+- Share the software with your friends and neighbors
+- Share the changes you make
+
+Under the following conditions:
+- You must include the original source code when you share the software
+- You must share your modifications under the same license
+- You must state what changes you made
+- You must include the full text of the GPL license
 https://developer.spotify.com/dashboard

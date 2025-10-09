@@ -67,37 +67,112 @@ cargo build --release
    SPOTIFY_CLIENT_SECRET=your_client_secret_here
    ```
 
-## Usage
+## Step-by-Step Usage Guide
 
-### Logging In to Accounts
-
-```bash
-# Log in to your source account (the one you want to copy from)
-spotify-sync login source
-
-# Log in to your target account (the one you want to copy to)
-spotify-sync login target
-```
-
-### Listing Connected Accounts
+### 1. First Time Setup
 
 ```bash
-spotify-sync list
+# Clone the repository
+git clone https://github.com/laxenta/spotify-sync-CLI
+cd spotify-sync-CLI
+
+# Build the project (this might take a minute)
+cargo build --release
+
+# Copy the example environment file
+cp .env.example .env
 ```
 
-### Previewing Transfer
+### 2. Get Your Spotify API Credentials
+
+1. Open [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) in your browser
+2. Click "Log In" and sign in with your Spotify account
+3. Click "Create App"
+4. Fill in these exact values:
+   - App name: `spotify-sync` (or whatever you want)
+   - Redirect URI: `http://localhost:8888/callback`
+   - Description: (anything you want)
+5. Click "Save"
+6. Click "Settings" to view your app
+7. You'll see:
+   - Client ID
+   - Client Secret (click "View Client Secret")
+8. Copy these values into your `.env` file:
+   ```bash
+   # Open .env in your favorite editor
+   nano .env
+
+   # Paste your values like this:
+   SPOTIFY_CLIENT_ID=your_client_id_here
+   SPOTIFY_CLIENT_SECRET=your_client_secret_here
+   ```
+
+### 3. Run the Transfer Process
 
 ```bash
-# See what will be transferred from the source account
-spotify-sync preview source
+# 1. Log in to your OLD account (the one you want to copy FROM)
+./target/release/spotify-sync login source
+
+# 2. A browser will open. Log in with your OLD Spotify account
+# 3. Click "Agree" to allow access
+# 4. Return to terminal after you see "Success!"
+
+# 5. Log in to your NEW account (the one you want to copy TO)
+./target/release/spotify-sync login target
+
+# 6. Browser will open again. This time log in with your NEW account
+# 7. Click "Agree" again
+# 8. Return to terminal after "Success!"
+
+# 9. Verify both accounts are connected
+./target/release/spotify-sync list
+# You should see both "source" and "target" listed
+
+# 10. Preview what will be transferred
+./target/release/spotify-sync preview source
+
+# 11. Start the transfer!
+./target/release/spotify-sync transfer source target
 ```
 
-### Performing the Transfer
+### What to Expect
 
+1. **During Login**:
+   - Browser will open twice (once for each account)
+   - Make sure to log in with the correct account each time
+   - You'll see a "Success" page after each login
+
+2. **During Preview**:
+   - You'll see counts of:
+     - How many liked songs will be copied
+     - How many playlists will be copied
+     - Total number of tracks
+
+3. **During Transfer**:
+   - Progress bars will show:
+     - Liked songs being copied
+     - Each playlist being created
+     - Tracks being added to each playlist
+   - Don't close the terminal until it's done!
+
+### Troubleshooting
+
+If you see an error about the port being in use:
 ```bash
-# Transfer everything from source to target account
-spotify-sync transfer source target
+# Kill any process using port 8888
+sudo lsof -ti:8888 | xargs kill -9
 ```
+
+If login seems stuck:
+```bash
+# Cancel with Ctrl+C and try again
+# Make sure you're using the correct account in browser
+```
+
+If transfer seems slow:
+- This is normal! Spotify's API has rate limits
+- Large playlists take longer
+- Just let it run
 
 ## How It Works
 

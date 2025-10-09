@@ -23,14 +23,14 @@ pub async fn transfer_all(source_account: &str, target_account: &str) -> Result<
     let multi = MultiProgress::new();
     
     // Transfer liked songs
-    println!("\n🎵 Transferring Liked Songs...");
+    println!("\nTransferring Liked Songs...");
     transfer_liked_songs(&source_client, &target_client, &multi).await?;
     
     // Transfer playlists
-    println!("\n� Transferring Playlists...");
+    println!("\nTransferring Playlists...");
     transfer_playlists(&source_client, &target_client, &multi).await?;
 
-    println!("\n✅ Transfer complete!");
+    println!("\nTransfer complete!");
     
     Ok(())
 }

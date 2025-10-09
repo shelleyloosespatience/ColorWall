@@ -73,8 +73,8 @@ pub async fn login(account_name: &str) -> Result<()> {
         <!DOCTYPE html>
         <html>
         <head><title>Success</title></head>
-        <body style="font-family: sans-serif; text-align: center; padding: 50px;">
-            <h1>✅ Success!</h1>
+        <body style="font-family: sans-serif; text-align: center; padding: 50px; vh: 80px;">
+            <h1>Success!</h1>
             <p>You can close this window now.</p>
         </body>
         </html>

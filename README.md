@@ -56,6 +56,7 @@ cargo build --release
 4. Fill in the application details:
    - App name: `spotify-sync` (or any name you prefer)
    - Redirect URI: `http://localhost:8888/callback`
+   ## (this wont work lmao, sadly yea, spotify blocked localhosts, i will be adding the redirect for my api in the Code, so this readMe is temproary and will be updated with an easy way)
    - Website: (optional)
    - Description: (optional)
 5. After creating the app, you'll see your:

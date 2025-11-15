@@ -162,7 +162,6 @@ Done->
 - [x] Live2D support
 - [x] Desktop
 - [x] caching
-Left->
 - [ ] **RUST migration** (reduce bundle size)
 - [ ] macOS & Linux builds
 - [ ] scheduler
